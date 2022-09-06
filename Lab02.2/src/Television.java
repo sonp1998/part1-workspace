@@ -1,17 +1,18 @@
 public class Television {
 
-  private String brand;
-  private int volume;
+  private String brand; //Fields
+  private int volume; // Fields
 
-  public void turnOn() {
-    System.out.println("The " + brand +" telvesion is on, with a volume of " + volume);
+  public void turnOn() { //business methods
+    boolean isConnected = verifyInternetConnection();
+    System.out.println("The " + brand +" television is on, with a volume of " + volume);
   }
 
   public void turnOff() {
-    System.out.println("The " + brand + " telvesion is off");
+    System.out.println("The " + brand + " television is off");
   }
 
-  public String getBrand() {
+  public String getBrand() { // Getters and setters
     return brand;
   }
 
@@ -25,6 +26,10 @@ public class Television {
 
   public void setVolume(int volume) {
     this.volume = volume;
+  }
+
+  private boolean verifyInternetConnection() {
+  return true;  // helper methods
   }
 
   public String toString(){
