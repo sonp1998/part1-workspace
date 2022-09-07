@@ -2,7 +2,7 @@ public class TelevisionClient {
 
   public static void main(String[] args) {
 
-        Television tv1 = new Television("Zenith",125);
+        Television tv1 = new Television("Zenith",25);
         //tv1.setBrand("Samsung");
         //tv1.setVolume(32);
 
