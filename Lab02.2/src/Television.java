@@ -7,6 +7,7 @@ public class Television {
 
   private String brand; //Fields
   private int volume; // Fields
+  private DisplayType display = DisplayType.LED;
 
   public Television() { // 3 constructors, 1 with no code, 1 with brand only, 1 with brand and volume
     instanceCount++; //implement our instance counter
@@ -22,6 +23,13 @@ public class Television {
     setVolume(volume);
   }
 
+  public Television(String brand, int volume,DisplayType display) {
+    this(brand, volume);
+    setDisplay(display);
+  }
+
+
+
   public void turnOn() { //business methods
     boolean isConnected = verifyInternetConnection();
     System.out.println("The " + brand + " television is on, with a volume of " + volume);
@@ -31,10 +39,12 @@ public class Television {
     System.out.println("The " + brand + " television is off");
   }
 
+
   public static int getInstanceCount() {
     return instanceCount;
   }
 
+  //GETTERS AND SETTERS START HERE
   public String getBrand() { // Getters and setters (getters for retrieving a value.
     return brand;
   }
@@ -62,11 +72,19 @@ public class Television {
     }
   }
 
+  public DisplayType getDisplay() {
+    return display;
+  }
+
+  public void setDisplay(DisplayType display) {
+    this.display = display;
+  }
+
   private boolean verifyInternetConnection() {
     return true;  // helper methods
   }
 
   public String toString() {
-    return "Television: brand=" + brand + ", volume=" + volume;
+    return "Television: brand = " + brand + ", volume = " + volume + ", display = " + display;
   }
 }
