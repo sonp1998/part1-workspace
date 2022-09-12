@@ -23,18 +23,18 @@ class DerivedDateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testPresidentsFirst100Days();
-        // testPopularBirthdays();
-        // testEarlyRetirement();
-        // testLaborDay();
-        // testElectionDay();
-        // testAnniversary();
+         testPresidentsFirst100Days();
+         testPopularBirthdays();
+         testEarlyRetirement();
+         testLaborDay();
+         testElectionDay();
+         testAnniversary();
     }
 
     /**
      * TASK: new American presidents are often measured by their performance during the first 100 days in office.
      * Inauguration Day 2017 is Jan 20.  When is this president's 100-day deadline?
-     *
+     *LocalDate
      * RESULT:
      */
     public static void testPresidentsFirst100Days() {
@@ -50,8 +50,12 @@ class DerivedDateTimeTest {
      */
     public static void testPopularBirthdays() {
         // TODO: what is the average birthday of someone conceived on Valentine's Day?
+        LocalDate valentines = LocalDate.of(2022,Month.FEBRUARY,14);
+        System.out.println(valentines.plusWeeks(38));
 
         // TODO: what is the average birthday of someone conceived on New Year's Eve (after midnight)?
+        LocalDate newYears = LocalDate.of(2022,1,1);
+        System.out.println(newYears.plusWeeks(38));
     }
 
     /**
