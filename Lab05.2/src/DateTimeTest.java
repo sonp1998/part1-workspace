@@ -75,8 +75,9 @@ class DateTimeTest {
         // TODO: 10/14/1066
         DateTimeFormatter useDateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
         System.out.println(useDateFormat.format(hastings));
+        LocalDate hastings2 = LocalDate.of(1066,10,14);
         DateTimeFormatter useDateFormatt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println(useDateFormatt);
+        System.out.println(useDateFormatt.format(hastings2));
 
         // TODO: 14-10-1066
 

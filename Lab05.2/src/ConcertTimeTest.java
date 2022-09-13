@@ -6,14 +6,16 @@
  * Copyright LearningPatterns Inc.
  */
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.time.*;
 
 class ConcertTimeTest {
 
     public static void main(String[] args) {
-        listAvailableZoneIds();
-        // testLiveConcert();
+        //listAvailableZoneIds();
+        testLiveConcert();
     }
 
     /*
@@ -33,10 +35,16 @@ class ConcertTimeTest {
      * OPTIONAL: your favorite band is playing live in Toronto, Canada on June 18, 2020, at 7pm.
      * You live in Perth, Australia, and want to watch a live simulcast via the web.
      * When are you watching it?
-     *
+     *       America/Toronto        Australia/Perth
      * RESULT: 
      */
     public static void testLiveConcert() {
-        // TODO
+        Calendar calendar =Calendar.getInstance();
+        Date date = calendar.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm ");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
+        System.out.println(dateFormat.format(date));
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Australia/Perth"));
+        System.out.println(date);
     }
 }

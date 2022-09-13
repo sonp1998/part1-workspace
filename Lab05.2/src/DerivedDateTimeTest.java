@@ -14,6 +14,10 @@
  */
 import java.time.*;
 import java.time.format.*;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
+
 import static java.time.temporal.TemporalAdjusters.*;
 
 class DerivedDateTimeTest {
@@ -66,7 +70,9 @@ class DerivedDateTimeTest {
      * RESULT:
      */
     public static void testEarlyRetirement() {
-        // TODO
+        LocalDate birthday = LocalDate.of(1998,01,25);
+        LocalDate retirement = birthday.plusYears(59).plusMonths(6);
+        System.out.println(retirement);
     }
 
     /**
@@ -77,7 +83,8 @@ class DerivedDateTimeTest {
      * RESULT:
      */
     public static void testLaborDay() {
-        // TODO
+      //  LocalDate laborDay = LocalDate.of(1998,01,25).with(ChronoField.MONTH_OF_YEAR,9).with(
+            //TemporalAdjuster.firstInMonth(DayOfWeek.MONDAY));
     }
 
     /**
@@ -99,6 +106,11 @@ class DerivedDateTimeTest {
      * RESULT:
      */
     public static void testAnniversary() {
-        // TODO
+        LocalDate wedding = LocalDate.of(1969,06,06);
+        LocalDate anniversary = wedding.plusYears(50);
+        if (anniversary.getDayOfWeek() != DayOfWeek.SATURDAY) {
+            anniversary = anniversary.with(TemporalAdjusters.nextOrSame(DayOfWeek.SATURDAY));
+        }
+        System.out.println(anniversary);
     }
 }
