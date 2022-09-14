@@ -14,10 +14,14 @@ public class SalariedEmployee extends Employee {
     super(name, hireDate);
   }
 
-  //TODO declare and implement a constructor that takes name, hireDate, rate, and hours as parameters
   public SalariedEmployee(String name, LocalDate hireDate, double salary){
     super(name, hireDate);
     setSalary(salary);
+  }
+
+  public void pay() {
+//    System.out.println(getName()+ " is paid a salary of " + getSalary());
+    System.out.printf("%s is paid a salary of %,.2f%n", getName(), getSalary());
   }
 
   public double getSalary() {
@@ -31,7 +35,7 @@ public class SalariedEmployee extends Employee {
   //TODO Override toString method (control + O)
   @Override
   public String toString() {
-   // return super.toString() + " Salary: " +getSalary();
+   // return super.toString() + ", salary= " +getSalary();
     return String.format("%s, salary=%,.2f", super.toString(),getSalary());
   }
 }

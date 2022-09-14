@@ -18,6 +18,10 @@ public class HourlyEmployee extends Employee {
     setRate(rate);
     setHours(hours);
   }
+
+  public void pay() {
+    System.out.printf("%s is paid hourly, for a total of %,.2f%n", getName(), getHours() * getRate());
+  }
   public double getRate() {
     return rate;
   }
@@ -33,11 +37,11 @@ public class HourlyEmployee extends Employee {
   public void setHours(double hours) {
     this.hours = hours;
   }
-
-
-  //TODO Override toString method (control + O)
+  //%.2f is for the decimal of a float
   @Override
   public String toString() {
-    return super.toString() + ", Rate= " + rate + "Hours: " + hours;
+//    return super.toString() + ", rate= " + rate + "Hours= " + hours;
+    return String.format("%s, rate=%.2f, hours=%.1f", super.toString(), getRate(), getHours());
+//    return super.toString() + ", Rate= " + rate + "Hours= " + hours;
   }
 }
