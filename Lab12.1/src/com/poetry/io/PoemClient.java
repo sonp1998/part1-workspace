@@ -9,16 +9,19 @@
 package com.poetry.io;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class PoemClient {
 
     /**
      * To run one method at a time, uncomment the call to the one you want to execute.
      */
-    public static void main(String[] args) {
-        // readPoem();
-        // writePoem();
+    public static void main(String[] args)  {
+//         readPoem();
+         writePoem();
     }
 
     /**
@@ -34,9 +37,13 @@ public class PoemClient {
      * The try-with-resources below allows you to initialize the stream and auto-close it.
      */
     private static void readPoem() {
-        // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = null) {
-
+        try (BufferedReader reader = new BufferedReader(new FileReader("famous-poem.txt"))) {
+            //Using for loop or while
+            //for (String line = reader.readLine(); line != null; line = reader.readLine())
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -55,6 +62,12 @@ public class PoemClient {
      * Use a try-with-resources to initialize the stream and auto-close it.
      */
     private static void writePoem() {
-        // TODO
+        try (PrintWriter writer = new PrintWriter(new FileWriter("haiku.txt"))) {
+            writer.println("A world of dew");
+            writer.println("And within every dewdrop");
+            writer.println("A world of struggle.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
